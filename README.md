@@ -1,18 +1,67 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/gp9US0IQ)
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=22634834&assignment_repo_type=AssignmentRepo)
-# QM 2023 Capstone Project
+# QM 2023 Capstone Project: [Team Name]
 
-Semester-long capstone for Statistics II: Data Analytics.
+## Team Members
+- [Josh Love] - [Role]
+- [Brody Duffel] - [Role]
+- [Tallulah Pacucci] - [Role]
 
-## Project Structure
+## Research Question
+[Write a 1-2 sentence research question here.]
 
-- **code/** — Python scripts and notebooks. Use `config_paths.py` for paths.
-- **data/raw/** — Original data (read-only)
-- **data/processed/** — Intermediate cleaning outputs
-- **data/final/** — M1 output: analysis-ready panel
-- **results/figures/** — Visualizations
-- **results/tables/** — Regression tables, summary stats
-- **results/reports/** — Milestone memos
-- **tests/** — Autograding test suite
+## Dataset Overview
+- **Primary Dataset:** REIT Master (instructor-provided)
+  - Entities: REITs (`permno`) | Time: Monthly (`ym`) | Outcome: `ret`
+- **Supplementary Dataset:** FRED macro series
+  - `FEDFUNDS`, `MORTGAGE30US`, `CPIAUCSL`, `UNRATE`
 
-Run `python code/config_paths.py` to verify paths.
+## Preliminary Hypotheses
+1. [Hypothesis 1]
+2. [Hypothesis 2]
+3. [Hypothesis 3]
+
+## Repository Structure
+```
+qm2023-capstone-btj/
+├── code/
+│   ├── config_paths.py
+│   ├── fetch_reit_data.py
+│   ├── fetch_macro_data.py
+│   └── merge_final_panel.py
+├── data/
+│   ├── raw/
+│   │   ├── reit_master_raw.csv
+│   │   └── fred_macro_raw.csv (optional fallback)
+│   ├── processed/
+│   │   ├── reit_master_clean.csv
+│   │   └── fred_macro_clean.csv
+│   └── final/
+│       ├── reit_analysis_panel.csv
+│       └── data_dictionary.md
+├── results/
+│   ├── figures/
+│   ├── reports/
+│   └── tables/
+├── tests/
+├── M1_data_quality_report.md
+└── AI_AUDIT_APPENDIX.md
+```
+
+## How to Run (Milestone 1)
+1. Verify paths:
+	- `python code/config_paths.py`
+2. Put raw file in `data/raw/`:
+	- `reit_master_raw.csv`
+3. Install dependencies:
+	- `python -m pip install -r requirements.txt`
+4. Run fetch/clean scripts:
+	- `python code/fetch_reit_data.py`
+	- `python code/fetch_macro_data.py`
+5. Run merge script:
+	- `python code/merge_final_panel.py`
+6. Check outputs:
+	- `data/final/reit_analysis_panel.csv`
+	- `data/final/data_dictionary.md`
+
+## Notes
+- All scripts use relative paths through `code/config_paths.py`.
+- Do not manually edit output CSV files in Excel; regenerate from scripts.
