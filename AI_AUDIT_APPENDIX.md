@@ -325,3 +325,53 @@ We used AI as a **coding assistant**, not a **replacement for thinking**. Every 
 **Verified by**: [Team signatures not required in digital format]  
 **Date**: February 18, 2026  
 **Status**: ✅ Complete and submitted with M1 deliverables
+
+---
+
+# Milestone 2 Addendum: EDA Dashboard
+
+**Date**: March 7, 2026  
+**Milestone**: M2 - EDA Dashboard
+
+## Disclosure
+
+**AI Tool**: GitHub Copilot (GPT-5.3-Codex)  
+**Tasks Assisted**:
+- Extract text from `Instuctions (Prof Provided)/README(1) Milestone 2.pdf`
+- Generate `capstone_eda.ipynb` structure and plotting code
+- Produce required M2 figure outputs in `results/figures/`
+- Draft `results/reports/M2_EDA_summary.md`
+
+## Verification
+
+- Notebook executed cell-by-cell without runtime errors.
+- All 8 required visualizations were generated and saved at 300 DPI:
+	- `results/figures/M2_plot1_correlation_heatmap.png`
+	- `results/figures/M2_plot2_outcome_timeseries.png`
+	- `results/figures/M2_plot3_dual_axis_return_fedfunds.png`
+	- `results/figures/M2_plot4_lagged_effects.png`
+	- `results/figures/M2_plot5_group_or_size_boxplot.png`
+	- `results/figures/M2_plot6_group_or_rolling_sensitivity.png`
+	- `results/figures/M2_plot7_scatter_controls.png`
+	- `results/figures/M2_plot8_time_series_decomposition.png`
+- Required summary report created: `results/reports/M2_EDA_summary.md`.
+
+## Critique
+
+- One plotting warning was observed (`seaborn` future deprecation on palette without hue) but did not affect notebook execution or output correctness.
+- Group-based sector plots were not applicable because the current panel extract contains one observed sector category; approved alternatives were used (size quartiles and rolling correlation) per M2 instructions.
+- Correlation magnitudes between returns and rate variables are small, so M3 modeling should not over-interpret bivariate EDA and should rely on fixed-effects and robustness checks.
+
+## M2 Files Generated with AI Assistance
+
+- `capstone_eda.ipynb`
+- `results/reports/M2_EDA_summary.md`
+- `M2_EDA_summary.md` (root convenience copy)
+- `results/figures/M2_plot1_correlation_heatmap.png`
+- `results/figures/M2_plot2_outcome_timeseries.png`
+- `results/figures/M2_plot3_dual_axis_return_fedfunds.png`
+- `results/figures/M2_plot4_lagged_effects.png`
+- `results/figures/M2_plot5_group_or_size_boxplot.png`
+- `results/figures/M2_plot6_group_or_rolling_sensitivity.png`
+- `results/figures/M2_plot7_scatter_controls.png`
+- `results/figures/M2_plot8_time_series_decomposition.png`
