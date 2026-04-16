@@ -1,0 +1,10 @@
+Variable,Model_1_FE_Unadjusted,Model_2_FE_Clustered,Model_3_FE_NoCrisis_Clustered
+FEDFUNDS_LAG12,-0.0134*** (0.0038),-0.0134 (0.0115),-0.0092 (0.0109)
+lag_return_1m,-0.0837*** (0.0048),-0.0837*** (0.0109),-0.0092 (0.0109)
+log_market_cap,0.0049*** (0.0006),0.0049*** (0.0011),-0.0092 (0.0109)
+UNRATE,nan (nan),nan (nan),-0.0092 (0.0109)
+Entity FE,Yes,Yes,Yes
+Time FE,Yes,Yes,Yes
+Clustered SE,No,Yes,Yes
+N,43405,43405,41006
+R2_within,-0.0399,-0.0399,-0.0164
