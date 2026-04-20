@@ -258,6 +258,150 @@ Write a Python script that:
 
 **AI Tool**: GitHub Copilot (Claude Haiku 4.5)  
 **Task**: Generate template and structure for AI audit documentation  
+
+---
+
+# AI Audit Appendix: Milestone 3 (Econometric Models)
+
+**Team**: Josh Love, Brody Duffel, Tallulah Pascucci  
+**Course**: QM 2023: Statistics II: Data Analytics  
+**Date Submitted**: April 2026  
+**Milestone**: M3 - Econometric Models (50 points)
+
+## Overview
+
+This section documents AI-assisted work used for Milestone 3 and follows the same
+"Disclose, Verify, Critique" standard as M1.
+
+---
+
+## 1. Model A Specification (Two-Way Fixed Effects)
+
+### Disclosure
+
+**AI Tool**: GitHub Copilot  
+**Task**: Draft a reproducible `capstone_models.py` script implementing two-way fixed effects with clustered standard errors  
+**Prompt (summary)**:
+
+"Implement a Model A panel regression using linearmodels PanelOLS with entity and time fixed effects, clustered standard errors by entity, and controls informed by M2 lag evidence."
+
+**AI Output**:
+- Panel setup with MultiIndex (`permno`, `ym`)
+- FE specification with `entity_effects=True`, `time_effects=True`
+- Baseline and clustered-SE variants saved for robustness comparison
+
+### Verification
+
+1. Confirmed code includes both entity and time fixed effects.
+2. Confirmed clustered SE implementation (`cov_type='clustered', cluster_entity=True`).
+3. Confirmed baseline predictors are aligned with M2 lag logic (includes long Fed Funds lag).
+4. Confirmed all paths are relative via `config_paths` directories.
+
+### Critique
+
+1. AI-generated model choices are methodologically sound but still require domain checks on control set and lag choice.
+2. Team retained a parsimonious control set to reduce multicollinearity risk documented in M2.
+
+---
+
+## 2. Diagnostics and Robustness Design
+
+### Disclosure
+
+**AI Tool**: GitHub Copilot  
+**Task**: Add required diagnostics and robustness checks per rubric
+
+**AI Output**:
+- Breusch-Pagan heteroskedasticity test (pooled OLS proxy)
+- VIF table for Model A predictors
+- Residual-vs-fitted and Q-Q diagnostic plots
+- Robustness checks: SE comparison, lag alternatives, crisis exclusion, size subsamples
+
+### Verification
+
+1. Confirmed all required diagnostics are present in code and saved to `results/tables` or `results/figures`.
+2. Confirmed robustness checks exceed minimum requirement (>=3 checks).
+3. Confirmed outputs use `M3_` naming pattern for submission discoverability.
+
+### Critique
+
+1. AI suggested a broad set of robustness checks; team curated checks to match dataset constraints.
+2. For heteroskedasticity in FE context, team uses Breusch-Pagan as a diagnostic signal and clustered SE as inference fix.
+
+---
+
+## 3. Model B Choice and Implementation
+
+### Disclosure
+
+**AI Tool**: GitHub Copilot  
+**Task**: Implement Model B option suitable for current data structure
+
+**Decision**: Chose Option 3 (ML comparison: Random Forest vs OLS)
+
+**Reason**:
+1. Current panel extract shows limited sector variation for clean DiD treatment-control design.
+2. ML comparison is explicitly approved for datasets without natural experiments.
+
+**AI Output**:
+- Time-based train/test split
+- OLS benchmark and RandomForestRegressor comparison
+- Test metrics (R2, RMSE)
+- RF feature-importance table and prediction plot
+
+### Verification
+
+1. Confirmed both models are estimated on the same feature set.
+2. Confirmed out-of-sample metrics are generated and exported.
+3. Confirmed interpretability trade-off is documented in memo.
+
+### Critique
+
+1. AI proposed default RF hyperparameters; team kept conservative settings to avoid overfitting.
+2. Team treats RF as predictive benchmark, not causal estimator.
+
+---
+
+## 4. Interpretation and Reporting Support
+
+### Disclosure
+
+**AI Tool**: GitHub Copilot  
+**Task**: Structure `M3_interpretation.md` to satisfy rubric sections
+
+**AI Output**:
+- Required memo headings (headline result, economics, diagnostics, robustness, caveats)
+- Submission checklist section and file manifest
+
+### Verification
+
+1. Confirmed memo includes all rubric-required sections.
+2. Confirmed interpretation language enforces unit-consistent coefficient framing.
+
+### Critique
+
+1. AI-generated prose can be generic if left unedited.
+2. Team reviews final numeric claims after script execution to ensure economic accuracy and avoid unit errors.
+
+---
+
+## 5. Validation and Human Oversight Checklist
+
+Before submission, team verifies:
+
+1. `python capstone_models.py` runs top-to-bottom without errors.
+2. Model A and Model B outputs are generated in required folders.
+3. Diagnostics and robustness outputs are present and interpreted.
+4. Coefficient interpretation uses correct units (percentage point vs percent).
+5. Final narrative reflects economic reasoning, not just statistical significance.
+
+---
+
+## 6. Known AI Limitations and Mitigations
+
+1. AI may overstate causal certainty: mitigated by explicit caveats and fixed-effects identification limits.
+2. AI may produce ambiguous unit language: mitigated through manual unit checks in memo.
+3. AI may suggest over-complex models: mitigated by keeping specification aligned to course rubric.
 **Human**: Filled in all specific details about prompts, errors, corrections, and validation
 
 ---
