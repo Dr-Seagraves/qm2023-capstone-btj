@@ -519,3 +519,30 @@ We used AI as a **coding assistant**, not a **replacement for thinking**. Every 
 - `results/figures/M2_plot6_group_or_rolling_sensitivity.png`
 - `results/figures/M2_plot7_scatter_controls.png`
 - `results/figures/M2_plot8_time_series_decomposition.png`
+
+---
+
+# Milestone 4 Addendum: Final Investment Memo
+
+**Date**: May 1, 2026  
+**Milestone**: M4 - Final Investment Memo
+
+## Disclosure
+
+**AI Tool**: GitHub Copilot and ChatGPT  
+**Tasks Assisted**:
+- Drafted a business-facing executive summary and conclusions from the M3 outputs
+- Helped format regression tables, figure captions, and references for the memo
+- Suggested plain-language phrasing for the recommendation and caveat sections
+
+## Verification
+
+- Checked every numeric claim against the exported tables in `results/tables/`
+- Verified that the memo uses the clustered fixed-effects estimate as the main result
+- Confirmed that the recommendation does not overstate the statistical precision of the policy-rate coefficient
+
+## Critique
+
+- AI initially phrased some results too strongly; we softened the language because the clustered estimate is not statistically significant.
+- AI wording sometimes blurred the difference between percent and percentage points; we corrected this throughout the memo.
+- We kept the recommendation modest because the model fit is weak and the Random Forest benchmark does not improve prediction.
